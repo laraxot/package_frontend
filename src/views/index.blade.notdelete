@@ -1,0 +1,5 @@
+@extends('pub_theme::layouts.app')
+@section('page_heading','DashBoard')
+@section('content')
+@include('pub_theme::index')
+@endsection

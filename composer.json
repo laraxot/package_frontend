@@ -1,0 +1,7 @@
+{
+  "name": "XRA/Frontend",
+  "description": "frontend",
+  "type": "project",
+  "minimum-stability": "dev",
+  "require": {}
+}
