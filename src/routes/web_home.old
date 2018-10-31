@@ -1,0 +1,12 @@
+<?php
+//die('['.__LINE__.']['.__FILE__.']');
+/*
+$middleware=['web', 'permuser', 'auth'];
+$middleware=['web'];
+$namespace='XRA\Frontend\Controllers';
+
+Route::group(['prefix' => null, 'middleware' => $middleware, 'namespace' => $namespace], function () {
+    Route::resource('/', 'FrontEndController');
+    Route::get('/home', 'FrontEndController@index');
+});
+*/

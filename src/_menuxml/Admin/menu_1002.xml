@@ -1,0 +1,15 @@
+<root>
+	<row>
+		<id>1002</id>
+		<id_padre>1000</id_padre>
+		<tipo_act>table</tipo_act>
+		<icons>fa fa-tachometer</icons>
+		<visibility>0</visibility>
+		<nome>Aspetto Frontend</nome>
+		<obj>frontend.theme</obj>
+		<act>index</act>
+		<load_tables></load_tables>
+		<funzione></funzione>
+		<fieldstorender></fieldstorender>
+	</row>
+</root>

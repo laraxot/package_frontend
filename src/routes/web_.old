@@ -1,0 +1,19 @@
+<?php
+//die('['.__LINE__.']['.__FILE__.']');
+$middleware=['web'];
+$namespace=$this->getNamespace().'\Controllers';
+
+Route::group(['prefix' => null, 'middleware' => $middleware, 'namespace' => $namespace]
+, function () {
+	Route::resource('/', 'FrontEndController');
+	Route::get('/{locale}', 'FrontEndController@index');
+	Route::get('/home', 'FrontEndController@index');
+});
+
+/*
+Route::group(['prefix' => '{locale}', 'middleware' => $middleware, 'namespace' => $namespace]
+, function () {
+	Route::resource('/', 'FrontEndController');
+	Route::get('/home', 'FrontEndController@index');
+});
+*/
