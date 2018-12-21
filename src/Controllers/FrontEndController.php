@@ -12,6 +12,9 @@ use XRA\Extend\Traits\CrudSimpleTrait as CrudTrait;
 use XRA\Extend\Traits\ArtisanTrait;
 
 use TeamTNT\TNTSearch\TNTSearch;
+//--- services
+use XRA\Extend\Services\ThemeService;
+
 
 //------- Models --
 use XRA\Fpb\Models\Grid;
@@ -57,15 +60,15 @@ class FrontendController extends Controller
             // return redirect('/install/step1');//view('install::index');
         }
         $locale=\App::getLocale();
-        $view=CrudTrait::getView();
-        return view($view)->with('locale', $locale)->with('view',$view);
+        $view=ThemeService::getView();
+        return view($view)->with('locale', $locale)->with('view', $view);
     }
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $query = $request->get('query');
-        $posts = Post::where('title','like','%'.$query.'%')->get();
+        $posts = Post::where('title', 'like', '%'.$query.'%')->get();
 
-        $view=CrudTrait::getView();
-        return view($view,compact('posts','query','view'));
-
+        $view=ThemeService::getView();
+        return view($view, compact('posts', 'query', 'view'));
     }
 }
