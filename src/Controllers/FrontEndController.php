@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 //-----------
 use XRA\Blog\Models\Post;
-use XRA\Extend\Library\XOT;
+use XRA\Extend\Traits\RouteTrait;
 use XRA\Extend\Traits\CrudSimpleTrait as CrudTrait;
 use XRA\Extend\Traits\ArtisanTrait;
 
