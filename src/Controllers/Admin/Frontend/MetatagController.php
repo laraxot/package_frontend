@@ -1,16 +1,13 @@
 <?php
 
+
+
 namespace XRA\Frontend\Controllers\Admin\Frontend;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-use XRA\Extend\Traits\CrudContainerItemTrait as CrudTrait;
-use XRA\Extend\Traits\ArtisanTrait;
+use Illuminate\Http\Request;
 //--- services
 use XRA\Extend\Services\ThemeService;
-
-use Zend;
 
 class MetatagController extends Controller
 {
@@ -21,8 +18,9 @@ class MetatagController extends Controller
 
     public function edit(Request $request)
     {
-        $metas=getConfig(['file'=>'metatag.php']);
-        $view=ThemeService::getView();
+        $metas = getConfig(['file' => 'metatag.php']);
+        $view = ThemeService::getView();
+
         return view($view)
                 ->with('view', $view)
                 ->with('rows', $metas);
@@ -30,13 +28,14 @@ class MetatagController extends Controller
 
     public function update(Request $request)
     {
-        $data=$request->all();
-        $fields=['_token','_method','_action'];
+        $data = $request->all();
+        $fields = ['_token', '_method', '_action'];
         foreach ($fields as $field) {
             unset($data[$field]);
         }
-        setConfig(['file'=>'metatag.php','data'=>$data]);
+        setConfig(['file' => 'metatag.php', 'data' => $data]);
         \Session::flash('status', 'Success '.\Carbon\Carbon::now());
+
         return redirect()->back();
         //ddd($data);
     }

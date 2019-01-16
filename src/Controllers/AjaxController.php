@@ -1,12 +1,12 @@
 <?php
 
+
+
 namespace XRA\Frontend\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Http\Request;
 //------- Models --
-use function PHPSTORM_META\type;
 use XRA\Blog\Models\Post;
 
 class AjaxController extends Controller
@@ -23,6 +23,7 @@ class AjaxController extends Controller
 
         return response()->json($posts);
     }
+
     public function searchRestaurants(Request $request)
     {
         $query = $request->get('query');
@@ -31,8 +32,8 @@ class AjaxController extends Controller
                         ->where('title', 'like', '%'.$query.'%')
                         ->get();
 
+        $view = 'pub_theme::restaurant.search.search_results';
 
-        $view='pub_theme::restaurant.search.search_results';
-        return view($view, compact('results'));
+        return view($view, \compact('results'));
     }
 }

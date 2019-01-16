@@ -1,9 +1,11 @@
 <?php
 
+
+
 namespace XRA\Backend\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class BackendController extends Controller
 {

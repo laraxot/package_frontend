@@ -1,4 +1,6 @@
 <?php
+
+
 //*
 //$middleware=['web'];
 //$namespace=$this->getNamespace().'\Controllers';
@@ -32,7 +34,6 @@ Route::group(['prefix' => null,'namespace'=>$namespace,'middleware'=>$middleware
 /*/
 //Route::feeds();
 
-
 //*/
 /*
 Route::group(['prefix' =>  LaravelLocalization::setLocale(),'namespace'=>$namespace]
@@ -42,6 +43,5 @@ Route::group(['prefix' =>  LaravelLocalization::setLocale(),'namespace'=>$namesp
     Route::get('/home', 'FrontEndController@index');
 });
 //*/
-
 
 $this->routes();

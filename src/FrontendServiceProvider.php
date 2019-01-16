@@ -1,5 +1,7 @@
 <?php
 
+
+
 namespace XRA\Frontend;
 
 use Illuminate\Support\ServiceProvider;

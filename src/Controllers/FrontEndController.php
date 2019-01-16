@@ -1,40 +1,36 @@
 <?php
 
+
+
 namespace XRA\Frontend\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Http\Request;
 //-----------
+use TeamTNT\TNTSearch\TNTSearch;
 use XRA\Blog\Models\Post;
-use XRA\Extend\Traits\RouteTrait;
-use XRA\Extend\Traits\CrudSimpleTrait as CrudTrait;
+use XRA\Extend\Services\ThemeService;
+//--- services
 use XRA\Extend\Traits\ArtisanTrait;
 
-use TeamTNT\TNTSearch\TNTSearch;
-//--- services
-use XRA\Extend\Services\ThemeService;
-
-
 //------- Models --
-use XRA\Fpb\Models\Grid;
 
-class FrontendController extends Controller
+class FrontEndController extends Controller
 {
     public function index(Request $request)
     {
-        if ($request->routelist==1) {
+        if (1 == $request->routelist) {
             return ArtisanTrait::exe('route:list');
         }
-        if ($request->migrate==1) {
+        if (1 == $request->migrate) {
             return ArtisanTrait::exe('migrate');
         }
-        if ($request->scout==1) {
+        if (1 == $request->scout) {
             //$ris=\Artisan::queue('scout:import',['model'=>]);
             //$ris=\Artisan::call('tntsearch:import',['model'=>'XRA\TakeAway\Models\AddOnCategory']);
             //Artisan::queue('scout:import {input}', ['App\\\Customer']);
             //dd($ris);
-            $class='XRA\TakeAway\Models\AddOnCategory';
+            $class = 'XRA\TakeAway\Models\AddOnCategory';
             $model = new $class();
             $tnt = new TNTSearch();
             $driver = config('database.default');
@@ -43,32 +39,35 @@ class FrontendController extends Controller
             $tnt->setDatabaseHandle(app('db')->connection()->getPdo());
             $indexer = $tnt->createIndex($model->searchableAs().'.index');
             $indexer->setPrimaryKey($model->getKeyName());
-            $fields = implode(', ', array_keys($model->toSearchableArray()));
+            $fields = \implode(', ', \array_keys($model->toSearchableArray()));
             $query = "{$model->getKeyName()}, $fields";
-            if ($fields == '') {
+            if ('' == $fields) {
                 $query = '*';
             }
             $indexer->query("SELECT $query FROM {$model->getTable()};");
             $indexer->run();
-            return ('<br/>All ['.$class.'] records have been imported.');
+
+            return '<br/>All ['.$class.'] records have been imported.';
         }
 
-
         $directory = base_path();
-        
+
         if (!env('INSTALLED')) {
             // return redirect('/install/step1');//view('install::index');
         }
-        $locale=\App::getLocale();
-        $view=ThemeService::getView();
+        $locale = \App::getLocale();
+        $view = ThemeService::getView();
+
         return view($view)->with('locale', $locale)->with('view', $view);
     }
+
     public function search(Request $request)
     {
         $query = $request->get('query');
         $posts = Post::where('title', 'like', '%'.$query.'%')->get();
 
-        $view=ThemeService::getView();
-        return view($view, compact('posts', 'query', 'view'));
+        $view = ThemeService::getView();
+
+        return view($view, \compact('posts', 'query', 'view'));
     }
 }
