@@ -1,15 +1,13 @@
 <?php
-
-
-
 namespace XRA\Frontend\Controllers\Admin\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+//------services---------
 use XRA\Extend\Services\ThemeService;
-use XRA\Extend\Traits\ArrayTrait;
-//--- services
-use XRA\Extend\Traits\ArtisanTrait;
+//--- traits
+use XRA\Extend\Traits\ArtisanTrait; //da tramutare in service
+use XRA\Extend\Traits\ArrayTrait;   //da tramutare in trait
 
 class TranslationController extends Controller
 {

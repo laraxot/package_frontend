@@ -1,7 +1,4 @@
 <?php
-
-
-
 namespace XRA\Frontend\Controllers\Admin\Frontend;
 
 use App\Http\Controllers\Controller;

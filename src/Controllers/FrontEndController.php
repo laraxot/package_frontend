@@ -1,7 +1,4 @@
 <?php
-
-
-
 namespace XRA\Frontend\Controllers;
 
 use App\Http\Controllers\Controller;
@@ -9,8 +6,8 @@ use Illuminate\Http\Request;
 //-----------
 use TeamTNT\TNTSearch\TNTSearch;
 use XRA\Blog\Models\Post;
-use XRA\Extend\Services\ThemeService;
 //--- services
+use XRA\Extend\Services\ThemeService;
 use XRA\Extend\Traits\ArtisanTrait;
 
 //------- Models --
