@@ -19,7 +19,7 @@ class FrontEndController extends Controller
         if ($request->act=='routelist') {
             return ArtisanTrait::exe('route:list');
         }
-        if (1 == $request->migrate) {
+        if ($request->act=='migrate') {
             return ArtisanTrait::exe('migrate');
         }
         if (1 == $request->scout) {
