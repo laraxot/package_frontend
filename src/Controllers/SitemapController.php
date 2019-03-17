@@ -1,7 +1,4 @@
 <?php
-
-
-
 namespace XRA\Frontend\Controllers;
 
 use App\Http\Controllers\Controller;
@@ -9,11 +6,11 @@ use File;
 //-----------
 //https://github.com/spatie/laravel-sitemap
 use Illuminate\Http\Request;
-use Spatie\Sitemap\SitemapGenerator;
+///use Spatie\Sitemap\SitemapGenerator;
 //------ models---------
-use Spatie\Sitemap\Tags\Url;
+//use Spatie\Sitemap\Tags\Url;
 //------- traits -------
-//use XRA\Extend\Traits\ImportTrait;
+
 //--- services
 use XRA\Blog\Models\Post;
 use XRA\Extend\Services\ThemeService;
