@@ -10,4 +10,6 @@ use XRA\Extend\Traits\ServiceProviderTrait;
 class FrontendServiceProvider extends ServiceProvider
 {
     use ServiceProviderTrait;
+
+    protected $defer = true;
 }
